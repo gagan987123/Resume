@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+ 
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+:root {
+	--primary-color: #df6005;
+	--text-color: #050000;
+}
+html {
+	font-size: 10px;
+}
+body {
+	font-family: Inter, sans-serif;
+	background-color: rgb(245, 240, 240);
+	color: white;
+}
+
+
+/* common styles */
+.progress_line {
+	background-color: var(--primary-color);
+
+	height: 8px;
+	border-radius: 10px;
+	margin: 12px;
+
+  }
+  
+li{
+	display: flex;
+}
+img {
+	width: 100%;
+}
+a {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+}
+.description {
+	display: flex;
+	margin-top: 1rem;
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: var(--text-color);
+}
+.description2 {
+	margin-top: 1rem;
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: var(--text-color);
+}
+.title {
+	color: var(--primary-color);
+	font-weight: 700;
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+.item_preTitle {
+	font-size: 1.4rem;
+	color: var(--text-color);
+	font-weight: 300;
+}
+.item_title {
+	font-size: 1.6rem;
+	color: rgb(0, 0, 0);
+	font-weight: 500;
+	margin: 0.8rem 0;
+}
+.item_subtitle {
+	font-size: 1.4rem;
+	color: var(--text-color);
+	font-weight: 400;
+}
+
+/* layouts */
+.container {
+	max-width: 1000px;
+	width: 90%;
+	margin: 50px auto;
+	display: grid;
+	padding: 7rem;
+	
+	background: #bab6b6;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+}
+@media only screen and (max-width: 768px) {
+	.container {
+		width: 100%;
+		grid-template-columns: 1fr;
+		padding: 3rem;
+		gap: 7rem;
+	}
+}
+.profile {
+	grid-column: 1 / -1;
+	margin-bottom: 2rem;
+}
+.group-1,
+.group-2 {
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+}
+.group-3 {
+	max-width: 700px;
+	width: 100%;
+	margin: 0 auto;
+	grid-column: 1/-1;
+	display: flex;
+	flex-direction: row;
+	gap: 5rem;
+}
+.group-3 > div {
+	flex: 1;
+}
+@media only screen and (max-width: 768px) {
+	.profile {
+		margin-bottom: 0;
+	}
+	.group-3 {
+		flex-direction: column;
+	}
+}
+
+/* profile */
+.profile_container {
+	display: flex;
+	gap: 2rem;
+}
+.profile_profileImg {
+	max-width: 250px;
+}
+.profile_name_firstName {
+	color: rgb(0, 0, 0);
+	font-weight: 200;
+	font-size: clamp(2rem, 8vw, 4rem);
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: -0.8rem;
+}
+.profile_name_lastName {
+	color: var(--primary-color);
+	font-weight: 700;
+	font-size: clamp(2.5rem, 15vw, 7rem);
+	text-transform: uppercase;
+	display: block;
+}
+.profile_title {
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+.downloadBtn {
+	display: block;
+	text-decoration: underline;
+	font-size: 1.6rem;
+	margin-top: 1rem;
+}
+.downloadBtn:hover {
+	color: var(--primary-color);
+}
+@media only screen and (max-width: 768px) {
+	.profile_container {
+		flex-direction: column;
+	}
+}
+
+/* Expertise */
+.skills_list {
+	margin-top: 1rem;
+	margin-left: 2rem;
+	line-height: 2;
+}
+
+/* Ref  */
+.ref_item {
+	margin-top: 2rem;
+}
+.ref_name {
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+/* eduction */
+.edu_item {
+	margin-top: 2rem;
+}
+
+/* certification */
+.certification_item {
+	margin-top: 2rem;
+}
+/* exp */
+.exp_item {
+	margin-top: 2rem;
+}
+
+/* awards */
+.awards_item {
+	margin-top: 2rem;
+}
+/* Interests */
+.interest_items {
+	margin-top: 2rem;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+.interest_item {
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	color: var(--text-color);
+}
+.interest_item svg {
+	width: 2rem;
+}
+
+/* socials */
+.social_items {
+	margin-top: 2rem;
+}
+.social_item {
+	margin-right: 0.5rem;
+	margin-left: 0.5rem;
+	font-size: 1.5rem;
+	display: flex;
+	 gap: 0.5rem; 
+	align-items: center;
+	justify-content: flex-start; 
+	color: var(--text-color);
+}
+.social_item:hover {
+	color: var(--primary-color);
+}
+.social_item svg {
+	width: 2rem;
+}
+
+hr {
+	grid-column: 1/-1;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 5rem;
+	margin-bottom: 1rem;
+	border: none;
+	border-top: 2px solid rgba(128, 128, 128, 0.229);
+}
+@media only screen and (max-width: 768px) {
+	hr {
+		margin: 0 auto;
+	}
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="profile">
+      <div class="profile_container">
+        
+        <div>
+          <h1 class="profile_name">
+            <span class="profile_name_firstName">Gagandeep</span>
+            <span class="profile_name_lastName">Singh</span>
+          </h1>
+          <!-- <p class="profile_title">Software Developer</p> -->
+          <p class="description profile_description">
+            +917206787371 | gaganarora987123@gmail.com | 
+            <a href="https://github.com/gagan987123" target="_b" class="social_item">
+              <i data-feather="github"></i>
+              /gagan987123
+            </a> |
+            <a href="https://www.linkedin.com/in/gagandeep-singh-9668b6239/" target="_blank" class="social_item">
+              <i data-feather="linkedin"></i>
+              <span>/Gagandeep Singh</span>
+            </a>
+          </p>
+          
+          <!-- <a class="downloadBtn" href="./cv.pdf" download="Resume.pdf">Download Resume</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="group-1">
+      <div class="skills">
+        <h3 class="title">Skills</h3>
+        <ul class="skills_list description2">
+          <li>C++ <br><div class="progress_line" style="width: 35%; margin-left: 63px;"></div></li>
+          <li>HTML <br><div class="progress_line" style="width: 70%; margin-left: 53px;"></div></li>
+          <li>CSS <div class="progress_line" style="width: 75%;margin-left: 67px;"></div></li>
+          <li>Node.js <div class="progress_line" style="width: 50%;margin-left: 45px;"></div></li>
+          <li>Express.js <div class="progress_line" style="width: 55%;margin-left: 30px;"></div></li>
+          <li>Git & GitHub <div class="progress_line" style="width: 55%;margin-left: 14px;"></div></li>
+          <li>Docker <div class="progress_line" style="width: 40%;margin-left: 53px;"></div></li>
+
+        </ul>
+      </div>
+      <div class="edu">
+        <h3 class="title">Education</h3>
+        <div class="edu_item">
+          <p class="item_preTitle">2022-2026</p>
+          <h4 class="item_title">CSE | Bachelor Of Engineering | 3rd sem 9.53 cgpa</h4>
+          <p class="item_subtitle">
+            New Horizon College Of Engineering | Banglore
+          </p>
+        </div>
+        <div class="edu_item">
+          <p class="item_preTitle">2022</p>
+          <h4 class="item_title">12th | 93%</h4>
+          <p class="item_subtitle">
+            Bharti Public Sr. Sec. School  
+          </p>
+        </div>
+        <div class="edu_item">
+          <p class="item_preTitle">2020</p>
+          <h4 class="item_title">10th | 80.2% </h4>
+          <p class="item_subtitle">
+            Bharti Public Sr. Sec. School  
+          </p>
+        </div>
+      </div>
+     
+
+
+      <div class="certification">
+        <h3 class="title">certification</h3>
+        <div class="certification_item">
+          <p class="item_preTitle">2024 | UDEMY</p>
+          <h4 class="item_title">NodeJS-The Complete Guide (MVC, REST APIs, GraphQL, Deno)
+          </h4>
+          <p class="description">
+            Completed "NodeJS - The Complete Guide," acquiring skills in MVC architecture, REST APIs, GraphQL, and Deno.
+          </p>
+        </div>
+        <div class="certification_item">
+          <p class="item_preTitle">NOV. 2023 | COURSERA</p>
+          <h4 class="item_title">HTML, CSS and JAVASCRIPT for Web Developer</h4>
+          <p class="description">
+            Completed a comprehensive course in HTML, CSS, and JavaScript for web development, gaining proficiency in creating and designing responsive, interactive websites.
+          </p>
+        </div>
+        <div class="certification_item">
+          <p class="item_preTitle">2022 | UDEMY</p>
+          <h4 class="item_title">GIT AND GITHUB</h4>
+          <p class="description">
+            Completed a course on Git and GitHub, mastering version control and collaborative development workflows.
+          </p>
+        </div>
+        <div class="certification_item">
+          <p class="item_preTitle">UDEMY</p>
+          <h4 class="item_title">DOCKER : The Practical Guide</h4>
+          <p class="description">
+            
+Completed a course on Docker, gaining expertise in containerization and efficient application deployment.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="group-2">
+      <div class="exp">
+        <h3 class="title">Projects</h3>
+        <div class="exp_item">
+          <h4 class="item_title">E-COMMERCE WEBSITE</h4>
+          <p class="item_subtitle">USED - Express.js , Pug templates, MONGODB</p>
+          <p class=" description">
+            Developed an e-commerce website using Express.js and Pug templates, implementing a user-friendly interface and robust backend. The project included features such as product listings, shopping cart functionality, and secure user authentication.
+          </p>
+        </div>
+        <div class="exp_item">
+          <h4 class="item_title">ONLINE EDUCATION WEBSITE </h4>
+          <p class=" description">
+            Developed an online education website for selling courses using Express.js and Pug templates, featuring email notifications and secure payment integration. The platform provides a seamless user experience.
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="awards">
+        <h3 class="title">participation</h3>
+        <div class="awards_item">
+          <p class="item_preTitle">30th & 31th MARCH 2023</p>
+          <h4 class="item_title">CP HACKATHON</h4>
+          <p class=" description">
+            Participated in a competitive programming hackathon organized by NHCE Coding Club and IEEE NHCE Computer Society, showcasing problem-solving skills.
+          </p>
+        </div>
+        <div class="awards_item">
+          <p class="item_preTitle">12th & 13th JAN 2023</p>
+          <h4 class="item_title">NEO CODETHON</h4>
+          <p class="description">
+            
+Participated in the Neo Codeathon, demonstrating coding proficiency and innovative problem-solving
+          </p>
+        </div>
+      </div>
+
+      <div class="interest">
+        <h3 class="title">Interest</h3>
+        <div class="interest_items">
+          <div class="interest_item">
+            <i data-feather="music"></i>
+            <span>Music</span>
+          </div>
+          <div class="interest_item">
+            <i data-feather="activity"></i>
+
+            <span>GYM</span>
+          </div>
+          <div class="interest_item">
+            <i data-feather="map"></i>
+            <span>Travel</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="group-1">
+        <div class="skills">
+          <h3 class="title">Languages</h3>
+          <ul class="skills_list description2">
+            <li>Hindi<div class="progress_line" style=" margin-left: 26px;width: 100%;"></div></li>
+            <li>English<div class="progress_line" style="width: 65%;"></div></li> 
+          </ul>
+        </div>
+    </div>
+    <hr>
+ 
+  </div>
+  <script>
+    feather.replace()
+  </script>
+</body>
+
+</html>
